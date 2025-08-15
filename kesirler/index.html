@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kesirler, Ondalık Gösterim ve Yüzdeler</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-wide subpage">
+    <div id="site-header"></div>
+    <script src="../script.js"></script>
+    <script>window.loadSiteHeader && window.loadSiteHeader('#site-header');</script>
+
+    <div class="app-strip">
+        <div class="logo-container">
+            <a class="home-icon" href="../index.html" aria-label="Ana sayfa">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            </a>
+            <span class="app-strip-title">Kesirler, Ondalık Gösterim ve Yüzdeler</span>
+            <button id="fsToggleBtn" class="fs-icon" aria-label="Tam ekran">
+                <svg id="fsIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5h2zm10 7h-3v2h5v-5h-2v3zm0-12h-5v2h3v3h2V5z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="visualization-section">
+                <div class="chart-wrapper">
+                    <div id="questionText" class="question-text" aria-live="polite"></div>
+                    <canvas id="pieChart"></canvas>
+                </div>
+                <div class="controls">
+                    <button id="newQuestion">Yeni Soru</button>
+                    <button id="showAnswer">Cevabı Göster</button>
+                </div>
+            </div>
+
+            <div class="conversion-section">
+                <div class="input-group">
+                    <label>Kesir:</label>
+                    <div class="fraction-input">
+                        <input type="number" id="numerator" min="0" placeholder="Pay">
+                        <div class="fraction-line"></div>
+                        <input type="number" id="denominator" min="1" placeholder="Payda">
+                    </div>
+                    <span id="fracStatus" class="status-indicator" aria-live="polite"></span>
+                </div>
+
+                <div class="arrows">
+                    <div class="arrow right">→</div>
+                    <div class="arrow left">←</div>
+                </div>
+
+                <div class="input-group">
+                    <label>Ondalık:</label>
+                    <input type="number" id="decimal" step="0.01" placeholder="0.00">
+                    <span id="decimalStatus" class="status-indicator" aria-live="polite"></span>
+                </div>
+
+                <div class="arrows">
+                    <div class="arrow right">→</div>
+                    <div class="arrow left">←</div>
+                </div>
+
+                <div class="input-group">
+                    <label>Yüzde:</label>
+                    <div class="percent-input">
+                        <input type="number" id="percent" step="0.1" min="0" max="100" placeholder="0.0">
+                        <span>%</span>
+                        <span id="percentStatus" class="status-indicator" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practice section: yellow box -->
+            <div class="practice-section">
+                <h3 class="practice-title">Dönüştürücü</h3>
+                <div class="practice-row">
+                    <div class="input-group">
+                        <label>Kesir:</label>
+                        <div class="fraction-input">
+                            <input type="number" id="pNumerator" min="0" placeholder="Pay">
+                            <div class="fraction-line"></div>
+                            <input type="number" id="pDenominator" min="1" placeholder="Payda">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Ondalık:</label>
+                        <input type="number" id="pDecimal" step="0.01" placeholder="0.00">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Yüzde:</label>
+                        <div class="percent-input">
+                            <input type="number" id="pPercent" step="0.1" min="0" max="100" placeholder="0.0">
+                            <span>%</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>&nbsp;</label>
+                        <div class="practice-actions">
+                            <button id="checkPractice">Dönüştür</button>
+                            <button id="resetPractice">Sıfırla</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="examples-section">
+                <h2>Gerçek Yaşam Örnekleri</h2>
+                <div class="example-cards">
+                    <div class="example-card pizza">
+                        <div class="visual-area">
+                            <div class="pizza-slices"></div>
+                        </div>
+                        <div class="info">
+                            <h3>Pizza Dilimleri</h3>
+                            <p>8 dilimlik pizzanın 3 dilimi yendi.</p>
+                            <p class="result">Kesir: 3/8</p>
+                            <p class="result">Ondalık: 0.375</p>
+                            <p class="result">Yüzde: %37.5</p>
+                        </div>
+                    </div>
+                    <div class="example-card water">
+                        <div class="visual-area">
+                            <div class="water-container">
+                                <div class="water-level"></div>
+                            </div>
+                        </div>
+                        <div class="info">
+                            <h3>Su Şişesi</h3>
+                            <p>2 litrelik şişenin 1.5 litresi dolu.</p>
+                            <p class="result">Kesir: 3/4</p>
+                            <p class="result">Ondalık: 0.75</p>
+                            <p class="result">Yüzde: %75</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Tam ekran düğmesi davranışı
+      (function(){
+        const btn = document.getElementById('fsToggleBtn');
+        const icon = document.getElementById('fsIcon');
+        function updateIcon(isFs){
+          icon.innerHTML = isFs
+            ? '<path d="M14 10h5V5h-2v3h-3v2zM10 10V7H7V5H5v5h5zM14 14v3h3v2h2v-5h-5zM10 19H5v-5h2v3h3v2z"/>'
+            : '<path d="M7 14H5v5h5v-2H7v-3zm0-4h2V7h3V5H5v5h2zm10 7h-3v2h5v-5h-2v3zm0-12h-5v2h3v3h2V5z"/>';
+        }
+        function isFullscreen(){
+          return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+        }
+        btn && btn.addEventListener('click', function(){
+          const el = document.documentElement;
+          if (!isFullscreen()) {
+            (el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen).call(el);
+            updateIcon(true);
+          } else {
+            (document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen).call(document);
+            updateIcon(false);
+          }
+        });
+        document.addEventListener('fullscreenchange', ()=> updateIcon(!!isFullscreen()));
+      })();
+    </script>
+</body>
+</html>

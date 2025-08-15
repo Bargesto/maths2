@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&display=swap');
+
+/* Genel stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo 2', cursive;
+}
+
+body {
+    font-family: 'Baloo 2', cursive;
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Purple app strip (match algoritma template) */
+.app-strip {
+    background: linear-gradient(90deg, var(--dark-purple), var(--primary-purple));
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ensure icons can be absolutely positioned relative to container */
+.app-strip .logo-container {
+    position: relative;
+    justify-content: center;
+}
+
+/* Left home icon */
+.app-strip .home-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    opacity: 0.9;
+    text-decoration: none;
+}
+.app-strip .home-icon svg { width: 22px; height: 22px; fill: currentColor; }
+.app-strip .home-icon:hover { opacity: 1; }
+
+/* Right fullscreen icon */
+.app-strip .fs-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    opacity: 0.9;
+    cursor: pointer;
+}
+.app-strip .fs-icon svg { width: 22px; height: 22px; fill: currentColor; }
+.app-strip .fs-icon:hover { opacity: 1; }
+
+.logo { width: 48px; height: 48px; }
+.app-strip-title {
+    color: #fff;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    text-align: center;
+}
+
+/* Full-width layout like algoritma when body has .page-wide */
+.page-wide .app-strip .logo-container {
+    max-width: 100%;
+    padding: 0 24px;
+}
+.page-wide .container {
+    max-width: 100%;
+    padding: 0 24px;
+}
+
+/* Topbar stilleri */
+.topbar {
+    background-color: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+}
+
+.app-name {
+    color: #000000;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Ana container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1565C0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.back-button:hover {
+    background-color: #0D47A1;
+}
+
+h1 {
+    text-align: center;
+    color: #2196F3;
+    margin-bottom: 30px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+}
+
+/* Oyun kontrolleri */
+.game-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.control-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.decimal-type, .order-type {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.decimal-type label, .order-type label {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: #f5f5f5;
+    transition: background-color 0.2s;
+}
+
+.decimal-type label:hover, .order-type label:hover {
+    background: #e0e0e0;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: var(--primary-purple);
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+button:hover {
+    background: var(--dark-purple);
+}
+
+/* Kontrol Et butonu: marka sarısı */
+#checkAnswer {
+    background: var(--primary-yellow);
+    color: #2c2100;
+}
+#checkAnswer:hover {
+    background: #e6b93d; /* slightly darker yellow for hover */
+}
+
+/* Header height tweaks only for this subpage (match algoritma) */
+.subpage .topbar {
+    padding: 8px 0; /* reduce vertical padding */
+}
+.subpage .topbar .logo {
+    height: 64px; /* increased size while preserving aspect ratio */
+    width: auto;  /* preserve aspect ratio */
+}
+
+/* Oyun alanı */
+.game-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.decimals-container, .drop-area, .correct-answer {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.decimal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    min-height: 120px;
+    padding: 15px;
+    border: 2px dashed #e0e0e0;
+    border-radius: 8px;
+    position: relative;
+}
+
+.decimal-item {
+    padding: 15px 20px;
+    border-radius: 8px;
+    cursor: move;
+    user-select: none;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.decimal {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Renk sınıfları */
+.decimal-color-1 { background: #e3f2fd !important; border: 2px solid #1565c0 !important; color: #1565c0 !important; }
+.decimal-color-2 { background: #f3e5f5 !important; border: 2px solid #7b1fa2 !important; color: #7b1fa2 !important; }
+.decimal-color-3 { background: #e8f5e9 !important; border: 2px solid #2e7d32 !important; color: #2e7d32 !important; }
+.decimal-color-4 { background: #fff3e0 !important; border: 2px solid #ef6c00 !important; color: #ef6c00 !important; }
+
+.decimal-item.dragging {
+    opacity: 0.5;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.comparison-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: #666;
+    padding: 0 10px;
+}
+
+.drop-area h3, .correct-answer h3 {
+    text-align: center;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.result-message {
+    text-align: center;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    display: none;
+    font-weight: bold;
+}
+
+.result-message.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    display: block;
+}
+
+.result-message.error {
+    background: #ffebee;
+    color: #c62828;
+    display: block;
+}
+
+.message {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.help-section {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.help-section h3 {
+    color: #1a237e;
+    margin-bottom: 15px;
+}
+
+.help-section ol {
+    padding-left: 20px;
+}
+
+.help-section li {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.correct-answer {
+    display: none;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olasılık Spektrumu</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-wide subpage">
+    <div id="site-header"></div>
+    <script src="../script.js"></script>
+    <script>window.loadSiteHeader && window.loadSiteHeader('#site-header');</script>
+
+    <div class="app-strip">
+        <div class="logo-container">
+            <a class="home-icon" href="../index.html" aria-label="Ana sayfa">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M10 20v-6h4v6a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-9h1.59a1 1 0 0 0 .66-1.74l-9.59-8.3a1 1 0 0 0-1.32 0L1.75 10.26A1 1 0 0 0 2.41 12H4v9a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2Z"/>
+                </svg>
+            </a>
+            <span class="app-strip-title">Olasılık Spektrumu</span>
+            <button class="fs-icon" type="button" aria-label="Tam ekran">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M7 3H3v4h2V5h2V3zm12 0h-4v2h2v2h2V3zM7 19H5v-2H3v4h4v-2zm12-2h-2v2h-2v2h4v-4z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+      const btn = document.querySelector('.app-strip .fs-icon');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const docEl = document.documentElement;
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+          if (docEl.requestFullscreen) docEl.requestFullscreen();
+          else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        }
+      });
+    })();
+    </script>
+    <div class="container">
+        
+        <div class="main-content">
+            <div class="probability-section">
+                <div class="spectrum-container">
+                    <div class="spectrum">
+                        <div class="marker"></div>
+                        <div class="fixed-points">
+                            <div class="point" style="left: 0%"></div>
+                            <div class="point" style="left: 25%" data-label="1/4"></div>
+                            <div class="point" style="left: 50%" data-label="1/2"></div>
+                            <div class="point" style="left: 75%" data-label="3/4"></div>
+                            <div class="point" style="left: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="event-description">
+                        Bir olayı seçin...
+                    </div>
+                </div>
+
+                <h3 class="section-title">Olasılık Durumları</h3>
+                <div class="events-list">
+                    <button class="event-button" data-probability="0">Güneşin batıdan doğması</button>
+                    <button class="event-button" data-probability="0">Bir sayının hem tek hem çift olması</button>
+                    <button class="event-button" data-probability="0.167">Zar atışında 6 gelmesi</button>
+                    <button class="event-button" data-probability="0.2">5 renkli topun olduğu torbadan kırmızı top çekilmesi</button>
+                    <button class="event-button" data-probability="0.25">4 kardeşten en büyüğünün seçilmesi</button>
+                    <button class="event-button" data-probability="0.333">3 farklı renk arabanın olduğu otoparktan mavi olanın seçilmesi</button>
+                    <button class="event-button" data-probability="0.5">Para atışında yazı gelmesi</button>
+                    <button class="event-button" data-probability="0.5">Doğacak bebeğin kız olması</button>
+                    <button class="event-button" data-probability="0.667">3 farklı renk arabanın olduğu otoparktan mavi olmayan arabanın seçilmesi</button>
+                    <button class="event-button" data-probability="0.8">5 renkli topun olduğu torbadan kırmızı olmayan top çekilmesi</button>
+                    <button class="event-button" data-probability="1">Atılan zarın 1 ile 6 arasında gelmesi</button>
+                    <button class="event-button" data-probability="1">Yarın güneşin doğudan doğması</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

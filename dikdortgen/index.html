@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dikdörtgen Hesaplamaları</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-wide subpage">
+    <div id="site-header"></div>
+    <script src="../script.js"></script>
+    <script>window.loadSiteHeader && window.loadSiteHeader('#site-header');</script>
+    <div class="app-strip">
+        <div class="logo-container">
+            <a class="home-icon" href="../index.html" aria-label="Ana sayfa">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M10 20v-6h4v6a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-9h1.59a1 1 0 0 0 .66-1.74l-9.59-8.3a1 1 0 0 0-1.32 0L1.75 10.26A1 1 0 0 0 2.41 12H4v9a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2Z"/>
+                </svg>
+            </a>
+            <span class="app-strip-title">Dikdörtgen Hesaplamaları</span>
+            <button class="fs-icon" type="button" aria-label="Tam ekran">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M7 3H3v4h2V5h2V3zm12 0h-4v2h2v2h2V3zM7 19H5v-2H3v4h4v-2zm12-2h-2v2h-2v2h4v-4z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <script>
+    (function(){
+      const btn = document.querySelector('.app-strip .fs-icon');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const docEl = document.documentElement;
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+          if (docEl.requestFullscreen) docEl.requestFullscreen();
+          else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        }
+      });
+    })();
+    </script>
+    <div class="container">
+        <div class="main-content">
+            <div class="calculator-container">
+                <div class="input-section">
+                    <div class="mode-selector">
+                        <button class="mode-btn active" data-mode="area">Alan → Çevre</button>
+                        <button class="mode-btn" data-mode="perimeter">Çevre → Alan</button>
+                    </div>
+
+                    <div id="areaMode" class="input-mode">
+                        <h3>Alan Verildiğinde</h3>
+                        <div class="input-group">
+                            <label for="areaInput">Dikdörtgenin Alanı:</label>
+                            <input type="number" id="areaInput" min="1" placeholder="Alan değerini girin">
+                            <button id="calculatePerimeter">Çevre Uzunluklarını Bul</button>
+                        </div>
+                    </div>
+
+                    <div id="perimeterMode" class="input-mode hidden">
+                        <h3>Çevre Verildiğinde</h3>
+                        <div class="input-group">
+                            <label for="perimeterInput">Dikdörtgenin Çevresi:</label>
+                            <input type="number" id="perimeterInput" min="4" step="2" placeholder="Çevre değerini girin">
+                            <button id="calculateArea">Olası Alanları Bul</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visualization-section">
+                    <canvas id="rectangleCanvas"></canvas>
+                </div>
+
+                <div class="results-section">
+                    <h3>Sonuçlar</h3>
+                    <div id="resultsList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

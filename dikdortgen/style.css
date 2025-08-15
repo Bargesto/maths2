@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Montserrat:wght@700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Baloo 2', cursive;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1565C0;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background-color: #0D47A1;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-purple);
+    margin-bottom: 30px;
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.title-container img {
+    width: 48px;
+    height: 48px;
+}
+
+.title-container h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.input-section {
+    grid-column: 1 / -1;
+}
+
+.mode-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--primary-purple);
+    background: none;
+    color: var(--primary-purple);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.mode-btn.active {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+    color: #fff;
+}
+
+.input-mode {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.input-mode.hidden {
+    display: none;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: 'Baloo 2', cursive;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--primary-purple);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+button:hover {
+    background-color: var(--dark-purple);
+}
+
+.visualization-section {
+    width: 100%;
+    height: 600px;
+    overflow: auto;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #fff;
+}
+
+canvas {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.results-section {
+    grid-column: 2 / 3;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#resultsList {
+    margin-top: 10px;
+}
+
+.result-item {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.result-item:hover {
+    background-color: #e3f2fd;
+    cursor: pointer;
+}
+
+.input-mode h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-purple);
+}
+
+label {
+    font-size: 1rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* Purple strip like Algoritma page */
+.app-strip {
+    background: linear-gradient(90deg, var(--dark-purple), var(--primary-purple));
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    gap: 16px;
+}
+
+.logo {
+    width: 48px;
+    height: 48px;
+}
+
+.app-strip-title {
+    color: #fff;
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+    text-align: center;
+}
+
+/* Left home icon */
+.app-strip .home-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    opacity: 0.9;
+    text-decoration: none;
+}
+.app-strip .home-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+.app-strip .home-icon:hover { opacity: 1; }
+
+/* Right fullscreen icon */
+.app-strip .fs-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    opacity: 0.9;
+    cursor: pointer;
+}
+.app-strip .fs-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+.app-strip .fs-icon:hover { opacity: 1; }
+
+/* Full-width like homepage */
+.page-wide .app-strip .logo-container { max-width: 100%; padding: 0 24px; }
+.page-wide .container { max-width: 100%; padding: 0 24px; }
+
+/* Header height tweaks for shared header on this subpage */
+.subpage .topbar { padding: 8px 0; }
+.subpage .topbar .logo { height: 64px; width: auto; }
+
+/* Primary action buttons in gold */
+#calculatePerimeter,
+#calculateArea {
+    background: #FDCB50;
+    color: #2c2100;
+}
+#calculatePerimeter:hover,
+#calculateArea:hover { background: #e6b93d; }

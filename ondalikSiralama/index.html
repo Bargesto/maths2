@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ondalık Sayıları Sıralama</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-wide subpage">
+    <div id="site-header"></div>
+    <script src="../script.js"></script>
+    <script>window.loadSiteHeader && window.loadSiteHeader('#site-header');</script>
+
+    <div class="app-strip">
+        <div class="logo-container">
+            <a class="home-icon" href="../index.html" aria-label="Ana sayfa">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M10 20v-6h4v6a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-9h1.59a1 1 0 0 0 .66-1.74l-9.59-8.3a1 1 0 0 0-1.32 0L1.75 10.26A1 1 0 0 0 2.41 12H4v9a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2Z"/>
+                </svg>
+            </a>
+            <span class="app-strip-title">Ondalık Sayıları Sıralama</span>
+            <button class="fs-icon" type="button" aria-label="Tam ekran">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M7 3H3v4h2V5h2V3zm12 0h-4v2h2v2h2V3zM7 19H5v-2H3v4h4v-2zm12-2h-2v2h-2v2h4v-4z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+      const btn = document.querySelector('.app-strip .fs-icon');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const docEl = document.documentElement;
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+          if (docEl.requestFullscreen) docEl.requestFullscreen();
+          else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        }
+      });
+    })();
+    </script>
+    <div class="container">
+        <div class="game-controls">
+            <div class="control-group">
+                <button id="newQuestion">Yeni Soru</button>
+                <div class="decimal-type">
+                    <label>
+                        <input type="radio" name="decimalType" value="tenths" checked> Onda birler
+                    </label>
+                    <label>
+                        <input type="radio" name="decimalType" value="hundredths"> Yüzde birler
+                    </label>
+                    <label>
+                        <input type="radio" name="decimalType" value="thousandths"> Binde birler
+                    </label>
+                    <label>
+                        <input type="radio" name="decimalType" value="mixed"> Karışık basamaklar
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="order-type">
+                    <label>
+                        <input type="radio" name="order" value="ascending" checked> Küçükten Büyüğe
+                    </label>
+                    <label>
+                        <input type="radio" name="order" value="descending"> Büyükten Küçüğe
+                    </label>
+                </div>
+                <button id="checkAnswer">Kontrol Et</button>
+                <button id="showCorrect">Doğru Sıralamayı Göster</button>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="decimals-container">
+                <div id="source" class="decimal-list">
+                    <!-- Ondalık sayılar buraya JavaScript ile eklenecek -->
+                </div>
+            </div>
+            
+            <div class="drop-area">
+                <h3>Sayıları buraya sürükleyip sıralayın</h3>
+                <div id="target" class="decimal-list">
+                    <!-- Sürüklenen sayılar buraya yerleştirilecek -->
+                </div>
+            </div>
+
+            <div class="correct-answer" style="display: none;">
+                <h3>Doğru Sıralama:</h3>
+                <div id="correctOrder" class="decimal-list">
+                    <!-- Doğru sıralama buraya JavaScript ile eklenecek -->
+                </div>
+            </div>
+        </div>
+
+        <div id="result" class="result-message"></div>
+
+        <div class="help-section">
+            <h3>Nasıl Oynanır?</h3>
+            <ol>
+                <li>Ondalık sayı türünü seçin (onda birler, yüzde birler, binde birler veya karışık)</li>
+                <li>Sıralama yönünü seçin (küçükten büyüğe veya büyükten küçüğe)</li>
+                <li>Sayıları sürükleyerek doğru sıraya dizin</li>
+                <li>"Kontrol Et" butonuna basarak cevabınızı kontrol edin</li>
+                <li>Doğru sıralamayı görmek için "Doğru Sıralamayı Göster" butonunu kullanın</li>
+                <li>Yeni bir soru için "Yeni Soru" butonunu kullanın</li>
+            </ol>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

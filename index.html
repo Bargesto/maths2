@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematik Uygulamaları</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lottie Web Component -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+</head>
+<body class="home">
+    <div id="site-header"></div>
+
+    <main>
+        <section class="hero">
+            <canvas id="heroParticles" class="particles-canvas" aria-hidden="true"></canvas>
+            <!-- Left illustration anchored to bottom-left of hero -->
+            <img class="hero-left-illustration" src="public/olcme.png" alt="Ölçme görseli" />
+            <div class="container hero-layout">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span id="typewriter" class="typewriter" aria-label="Dinamik ve İnteraktif Matematik Platformu"></span>
+                        <span class="caret" aria-hidden="true"></span>
+                    </h1>
+                    <p class="subtitle">Etkileşimli uygulamalarla konuları keşfet, dene ve öğren.</p>
+                </div>
+                <div class="hero-media">
+                    <img src="public/super.gif" alt="Süper animasyon" style="width: 140px; height: 140px; object-fit: contain;" />
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="grade-grid">
+                    <!-- 5. Sınıf Kartı -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <span class="grade-icon five-gif" aria-hidden="true">5</span>
+                            <h2>5. Sınıf Matematik Uygulamaları</h2>
+                        </div>
+                        <div id="sinif5" class="grade-content">
+                            <nav class="app-list">
+                                <a class="app-button" href="dogruAcilar/index.html">
+                                    <span class="app-title">Doğruların Oluşturduğu Açılar</span>
+                                    <span class="app-desc">Ters, iç, dış ve yöndeş açılarla etkileşimli örnekler.</span>
+                                </a>
+                                <a class="app-button" href="sayiOkuma/index.html">
+                                    <span class="app-title">Doğal Sayıları Okuma</span>
+                                    <span class="app-desc">Verilen sayıları okunuşlarına çevir ve pekiştir.</span>
+                                </a>
+                                <a class="app-button" href="dikdortgen/index.html">
+                                    <span class="app-title">Dikdörtgen Hesaplamaları</span>
+                                    <span class="app-desc">Kenarları değiştirerek çevre ve alanı hesapla.</span>
+                                </a>
+                                <a class="app-button" href="kesirler/index.html">
+                                    <span class="app-title">Kesirlerin Farklı Gösterimleri</span>
+                                    <span class="app-desc">Model, sayı doğrusu ve birim kesirlerle temsil et.</span>
+                                </a>
+                                <a class="app-button" href="kesirSiralama/index.html">
+                                    <span class="app-title">Kesirleri Sıralama</span>
+                                    <span class="app-desc">Pay-payda ilişkisine göre küçükten büyüğe sırala.</span>
+                                </a>
+                                <a class="app-button" href="ondalikSiralama/index.html">
+                                    <span class="app-title">Ondalık Gösterimleri Sıralama</span>
+                                    <span class="app-desc">Ondalık sayıları karşılaştır ve sırala.</span>
+                                </a>
+                                <a class="app-button" href="karisikSiralama/index.html">
+                                    <span class="app-title">Karışık Gösterimleri Sıralama</span>
+                                    <span class="app-desc">Kesir, ondalık ve yüzdeyi birlikte kıyasla.</span>
+                                </a>
+                                <a class="app-button" href="sutunvenoktagrafigi/index.html">
+                                    <span class="app-title">Sütun ve Nokta Grafiği</span>
+                                    <span class="app-desc">Verileri grafikte göster, yorumla ve karşılaştır.</span>
+                                </a>
+                                <a class="app-button" href="olasilikSpektrumu/index.html">
+                                    <span class="app-title">Olasılık Spektrumu</span>
+                                    <span class="app-desc">Olası, imkânsız ve kesin olayları sınıflandır.</span>
+                                </a>
+                                <a class="app-button" href="algoritma/index.html">
+                                    <span class="app-title">Algoritma</span>
+                                    <span class="app-desc">Adım adım yönergelerle problemi çözen akışları kur.</span>
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- 6. Sınıf Kartı -->
+                    <div class="grade-card grade-6">
+                        <div class="grade-header">
+                            <span class="grade-icon six-gif" aria-hidden="true">6</span>
+                            <h2>6. Sınıf Matematik Uygulamaları</h2>
+                        </div>
+                        <div id="sinif6" class="grade-content">
+                            <nav class="app-list">
+                                <a class="app-button" href="#">Yakında eklenecek…</a>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- 7. Sınıf Kartı -->
+                    <div class="grade-card">
+                        <div class="grade-header">
+                            <span class="grade-icon seven-gif" aria-hidden="true">7</span>
+                            <h2>7. Sınıf Matematik Uygulamaları</h2>
+                        </div>
+                        <div id="sinif7" class="grade-content">
+                            <nav class="app-list">
+                                <a class="app-button" href="#">Yakında eklenecek…</a>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- 8. Sınıf Kartı -->
+                    <div class="grade-card grade-8">
+                        <div class="grade-header">
+                            <span class="grade-icon eight-gif" aria-hidden="true">8</span>
+                            <h2>8. Sınıf Matematik Uygulamaları</h2>
+                        </div>
+                        <div id="sinif8" class="grade-content">
+                            <nav class="app-list">
+                                <a class="app-button" href="#">Yakında eklenecek…</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Yellow gradient strip for promo/image+text -->
+        <section class="promo-strip">
+            <div class="container">
+                <div class="promo-box">
+                    <div class="promo-media"><img src="https://nitelikyayinlari.com/content/images/thumbs/0000776.png" alt="Nitelik Yayınları" /></div>
+                    <div class="promo-text">
+                        <span class="promo-label">Nitelik Yayınları Ortaokul Kitap Serileri :</span>
+                        <span class="promo-rotating" id="promoRotate" aria-live="polite"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alternating purple/yellow bordered tiles placed inside a purple gradient strip -->
+        <section class="app-tiles">
+            <div class="container">
+                <div class="tiles-box">
+                    <div id="randomTiles" class="tiles-grid" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+      // Load shared header on homepage
+      window.loadSiteHeader && window.loadSiteHeader('#site-header');
+    </script>
+</body>
+</html>
