@@ -177,7 +177,8 @@ body.home {
     min-height: 380px; /* büyük görsel sığsın */
     display: flex;           /* içeriği yükseklik ortalamak için */
     align-items: center;     /* dikeyde ortala */
-    text-align: center;
+    text-align: left; /* başlık ve alt yazıyı sola hizala */
+    justify-content: flex-start; /* yatayda en sola hizala */
     position: relative; /* particles & glows layering */
     overflow: hidden;   /* clip particles */
 }
@@ -232,12 +233,17 @@ body.home {
 .hero .container {
     position: relative;
     z-index: 1;
+    padding-left: 0 !important; /* hero içinde metni mor alanın en soluna dayamak için */
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important; /* merkezlemeyi kaldır, tamamen sola daya */
 }
 
 /* Illustration anchored to bottom-left of the hero */
 .hero-left-illustration {
     position: absolute;
-    left: 0;
+    right: 0;
+    left: auto;
     bottom: 0; /* alttan sıfır */
     height: 320px; /* 2x büyütüldü */
     width: auto;
@@ -247,16 +253,28 @@ body.home {
     z-index: 1; /* içerikle aynı katmanda, ama absolute olduğu için üst üste gelmez */
 }
 
+/* Small super.gif placed to the left of the hero title */
+.hero-gif {
+    display: block;
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    flex: 0 0 auto; /* küçülmesin, sabit kalsın */
+    pointer-events: none; /* dekoratif, tıklamayı engelle */
+}
+
 .hero-layout {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* içerikleri sola hizala */
     gap: 20px;
+    width: 100%;
 }
 
 .hero-content {
-    text-align: right;
+    text-align: left;
     flex: 1;
+    padding-left: 0 !important;
 }
 
 .hero-title {
@@ -265,6 +283,14 @@ body.home {
     line-height: 1.2;
     margin-bottom: 16px;
     font-family: 'Baloo 2', 'Poppins', sans-serif; /* daha eğlenceli font */
+}
+
+/* Force hero texts to the far left */
+.hero .hero-title,
+.hero .subtitle,
+.hero #typewriter {
+    text-align: left !important;
+    margin-left: 0 !important;
 }
 
 /* Typewriter styles */
@@ -290,10 +316,6 @@ body.home {
 .subtitle {
     font-size: 1.1rem;
     opacity: 0.9;
-}
-
-.hero-media {
-    flex-shrink: 0;
 }
 
 /* CONTENT SECTION */
@@ -670,11 +692,12 @@ body.home {
     }
     .hero-layout {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
+        align-items: flex-start; /* mobilde içeriği sola dayalı tut */
     }
 
     .hero-content {
-        text-align: center;
+        text-align: left;
     }
 
     /* Stack promo strip on mobile */
@@ -694,10 +717,6 @@ body.home {
     .hero-left-illustration {
         height: 220px; /* 2x büyütüldü (mobil) */
         max-width: 80vw;
-    }
-    .hero-media img {
-        width: 90px !important;
-        height: 90px !important;
     }
     /* Tiles purple strip responsive */
     .app-tiles .tiles-box {

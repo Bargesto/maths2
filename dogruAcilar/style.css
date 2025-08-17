@@ -73,6 +73,10 @@ h1 {
     border-radius: 5px;
     margin-bottom: 30px;
     background-color: #f8f9fa;
+    /* Allow custom dragging on touch devices */
+    touch-action: none;
+    -ms-touch-action: none; /* IE/old Edge */
+    user-select: none;
 }
 
 .controls {

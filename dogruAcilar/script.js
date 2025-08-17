@@ -178,11 +178,13 @@ resetBtn.addEventListener('click', () => {
     updateAngleInfo();
 });
 
-canvas.addEventListener('mousedown', (e) => {
+// Unified input handling (mouse + touch) using Pointer Events when available
+function getCanvasPos(clientX, clientY) {
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    return { x: clientX - rect.left, y: clientY - rect.top };
+}
 
+function onDown(x, y, pointerId) {
     lines.forEach((line, index) => {
         const point = line.isNearPoint(x, y);
         if (point) {
@@ -191,15 +193,10 @@ canvas.addEventListener('mousedown', (e) => {
             selectedPoint = point;
         }
     });
-});
+}
 
-canvas.addEventListener('mousemove', (e) => {
+function onMove(x, y) {
     if (!isDragging) return;
-
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
     if (selectedPoint === 'start') {
         lines[selectedLine].x1 = x;
         lines[selectedLine].y1 = y;
@@ -207,16 +204,71 @@ canvas.addEventListener('mousemove', (e) => {
         lines[selectedLine].x2 = x;
         lines[selectedLine].y2 = y;
     }
-
     draw();
     updateAngleInfo();
-});
+}
 
-canvas.addEventListener('mouseup', () => {
+function onUp() {
     isDragging = false;
     selectedLine = null;
     selectedPoint = null;
-});
+}
+
+if (window.PointerEvent) {
+    // Prevent default gestures on touch
+    canvas.style.touchAction = 'none';
+
+    canvas.addEventListener('pointerdown', (e) => {
+        const { x, y } = getCanvasPos(e.clientX, e.clientY);
+        onDown(x, y, e.pointerId);
+        if (canvas.setPointerCapture) {
+            try { canvas.setPointerCapture(e.pointerId); } catch {}
+        }
+    });
+
+    canvas.addEventListener('pointermove', (e) => {
+        const { x, y } = getCanvasPos(e.clientX, e.clientY);
+        onMove(x, y);
+    });
+
+    const endHandler = () => onUp();
+    canvas.addEventListener('pointerup', endHandler);
+    canvas.addEventListener('pointercancel', endHandler);
+} else {
+    // Mouse fallback
+    canvas.addEventListener('mousedown', (e) => {
+        const { x, y } = getCanvasPos(e.clientX, e.clientY);
+        onDown(x, y);
+    });
+    window.addEventListener('mousemove', (e) => {
+        const { x, y } = getCanvasPos(e.clientX, e.clientY);
+        onMove(x, y);
+    });
+    window.addEventListener('mouseup', onUp);
+
+    // Touch fallback
+    canvas.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length) {
+            const t = e.touches[0];
+            const { x, y } = getCanvasPos(t.clientX, t.clientY);
+            onDown(x, y);
+        }
+        e.preventDefault();
+    }, { passive: false });
+
+    canvas.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches.length) {
+            const t = e.touches[0];
+            const { x, y } = getCanvasPos(t.clientX, t.clientY);
+            onMove(x, y);
+        }
+        e.preventDefault();
+    }, { passive: false });
+
+    const touchEnd = (e) => { onUp(); e.preventDefault(); };
+    canvas.addEventListener('touchend', touchEnd, { passive: false });
+    canvas.addEventListener('touchcancel', touchEnd, { passive: false });
+}
 
 // Başlangıçta iki doğru oluştur
 const centerX = canvas.width / 2;
