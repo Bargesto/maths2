@@ -310,6 +310,40 @@
     }
 })();
 
+// Set favicon across pages
+(function(){
+    function setFavicon(){
+        const isHome = document.body.classList.contains('home');
+        const base = isHome ? '' : '../';
+        const href = base + 'public/favicon.png';
+
+        let link = document.querySelector('link[rel="icon"]');
+        if (!link){
+            link = document.createElement('link');
+            link.rel = 'icon';
+            link.type = 'image/png';
+            document.head.appendChild(link);
+        }
+        link.href = href;
+
+        // legacy/compat shortcut icon
+        let alt = document.querySelector('link[rel="shortcut icon"]');
+        if (!alt){
+            alt = document.createElement('link');
+            alt.rel = 'shortcut icon';
+            alt.type = 'image/png';
+            document.head.appendChild(alt);
+        }
+        alt.href = href;
+    }
+
+    if (document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', setFavicon);
+    } else {
+        setFavicon();
+    }
+})();
+
 // Helper to dynamically load shared header into pages
 (function(){
     if (typeof window === 'undefined') return;

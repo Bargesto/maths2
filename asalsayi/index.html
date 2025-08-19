@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asal Sayılar ve Asal Çarpanlar</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-wide subpage">
+  <div id="site-header"></div>
+  <script src="../script.js"></script>
+  <script>window.loadSiteHeader && window.loadSiteHeader('#site-header');</script>
+
+  <div class="app-strip">
+    <div class="logo-container">
+      <a class="home-icon" href="../index.html" aria-label="Ana sayfa">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 20v-6h4v6a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-9h1.59a1 1 0 0 0 .66-1.74l-9.59-8.3a1 1 0 0 0-1.32 0L1.75 10.26A1 1 0 0 0 2.41 12H4v9a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2Z"/>
+        </svg>
+      </a>
+      <span class="app-strip-title">Asal Sayılar ve Asal Çarpanlar</span>
+      <button class="fs-icon" type="button" aria-label="Tam ekran">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M7 3H3v4h2V5h2V3zm12 0h-4v2h2v2h2V3zM7 19H5v-2H3v4h4v-2zm12-2h-2v2h-2v2h4v-4z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const btn = document.querySelector('.app-strip .fs-icon');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const docEl = document.documentElement;
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+          if (docEl.requestFullscreen) docEl.requestFullscreen();
+          else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        }
+      });
+    })();
+  </script>
+
+  <div class="container">
+    <section class="card">
+      <h2>Asallık Kontrolü</h2>
+      <div class="controls">
+        <label class="field">
+          <span>Doğal sayı</span>
+          <input id="primeInput" type="number" min="0" max="999999" value="17" inputmode="numeric" />
+        </label>
+        <button id="primeRandom" class="btn accent" type="button">Sayı Üret</button>
+        <button id="primeCheck" class="btn success" type="button">Asal mı Kontrol Et</button>
+      </div>
+      <div id="primeSummary" class="summary" aria-live="polite"></div>
+      <div id="primeExplain" class="explain" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>Asal Çarpanlar</h2>
+      <div class="controls">
+        <label class="field">
+          <span>Doğal sayı</span>
+          <input id="factInput" type="number" min="2" max="999999" value="360" inputmode="numeric" />
+        </label>
+        <button id="factRandom" class="btn accent" type="button">Sayı Üret</button>
+        <button id="factorize" class="btn success" type="button">Asal Çarpanları Bul</button>
+      </div>
+      <div id="factSummary" class="summary" aria-live="polite"></div>
+
+      <div class="fact-views">
+        <div class="view">
+          <h3>Çarpan Ağacı</h3>
+          <div id="tree" class="factor-tree" aria-live="polite"></div>
+        </div>
+        <div class="view">
+          <h3>Bölme (Algoritma)</h3>
+          <div id="ladder" class="ladder" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

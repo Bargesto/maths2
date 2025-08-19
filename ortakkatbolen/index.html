@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ortak Katlar ve Ortak Bölenler</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-wide subpage">
+  <div id="site-header"></div>
+  <script src="../script.js"></script>
+  <script>window.loadSiteHeader && window.loadSiteHeader('#site-header');</script>
+
+  <div class="app-strip">
+    <div class="logo-container">
+      <a class="home-icon" href="../index.html" aria-label="Ana sayfa">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 20v-6h4v6a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-9h1.59a1 1 0 0 0 .66-1.74l-9.59-8.3a1 1 0 0 0-1.32 0L1.75 10.26A1 1 0 0 0 2.41 12H4v9a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2Z"/></svg>
+      </a>
+      <span class="app-strip-title">Ortak Katlar ve Ortak Bölenler</span>
+      <button class="fs-icon" type="button" aria-label="Tam ekran">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 3H3v4h2V5h2V3zm12 0h-4v2h2v2h2V3zM7 19H5v-2H3v4h4v-2zm12-2h-2v2h-2v2h4v-4z"/></svg>
+      </button>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const btn = document.querySelector('.app-strip .fs-icon');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const docEl = document.documentElement;
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+          if (docEl.requestFullscreen) docEl.requestFullscreen();
+          else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        }
+      });
+    })();
+  </script>
+
+  <div class="container">
+    <section class="card">
+      <h2>İki Sayı Gir</h2>
+      <div class="controls">
+        <label class="field">
+          <span>Sayı A</span>
+          <input id="numA" type="number" min="1" max="9999" value="18" inputmode="numeric" />
+        </label>
+        <label class="field">
+          <span>Sayı B</span>
+          <input id="numB" type="number" min="1" max="9999" value="24" inputmode="numeric" />
+        </label>
+        <button id="randomPair" class="btn accent" type="button">Sayı Üret</button>
+        <button id="calcBoth" class="btn success" type="button">Hesapla</button>
+      </div>
+      <div class="summary" id="pairSummary" aria-live="polite"></div>
+      <div class="badges">
+        <span id="gcdBadge" class="badge" title="En Büyük Ortak Bölen">EBOB: <strong>-</strong></span>
+        <span id="lcmBadge" class="badge" title="En Küçük Ortak Kat">EKOK: <strong>-</strong></span>
+      </div>
+    </section>
+
+    <section class="cards two-col">
+      <div class="card">
+        <h2>Ortak Bölenler (Çarpanlar)</h2>
+        <div class="mini-controls">
+          <button id="showCommonFactors" class="btn ghost" type="button">Ortak Bölenleri Göster</button>
+        </div>
+        <div class="lists">
+          <div class="list-box">
+            <h3>A'nın Bölenleri</h3>
+            <div id="factorsA" class="list" aria-live="polite"></div>
+          </div>
+          <div class="list-box">
+            <h3>B'nin Bölenleri</h3>
+            <div id="factorsB" class="list" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="common-box">
+          <h3>Ortak Bölenler</h3>
+          <div id="commonFactors" class="list" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Ortak Katlar</h2>
+        <div class="mini-controls">
+          <label class="field compact">
+            <span>Kaç adet?</span>
+            <input id="cmCount" type="number" min="3" max="40" value="10" />
+          </label>
+          <button id="showCommonMultiples" class="btn ghost" type="button">Ortak Katları Göster</button>
+        </div>
+        <div class="lists">
+          <div class="list-box">
+            <h3>A'nın Katları</h3>
+            <div id="multiplesA" class="list tight" aria-live="polite"></div>
+          </div>
+          <div class="list-box">
+            <h3>B'nin Katları</h3>
+            <div id="multiplesB" class="list tight" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="common-box">
+          <h3>Ortak Katlar</h3>
+          <div id="commonMultiples" class="list tight" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -2,11 +2,11 @@
 
 * { box-sizing: border-box; }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 8px 20px 20px; }
 
-.main-content { display: flex; justify-content: center; align-items: center; min-height: calc(100vh - 220px); }
+.main-content { display: flex; justify-content: center; align-items: flex-start; min-height: 0; padding-top: 8px; }
 
-.input-section { background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); width: 100%; margin: 0 auto; }
+.input-section { background: #fff; padding: 18px 30px 24px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); width: 100%; margin: 0 auto; }
 
 #geometryCanvas {
   width: 100%;

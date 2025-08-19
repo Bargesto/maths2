@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Çarpanlar ve Katlar</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="page-wide subpage">
+  <div id="site-header"></div>
+  <script src="../script.js"></script>
+  <script>window.loadSiteHeader && window.loadSiteHeader('#site-header');</script>
+
+  <div class="app-strip">
+    <div class="logo-container">
+      <a class="home-icon" href="../index.html" aria-label="Ana sayfa">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 20v-6h4v6a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-9h1.59a1 1 0 0 0 .66-1.74l-9.59-8.3a1 1 0 0 0-1.32 0L1.75 10.26A1 1 0 0 0 2.41 12H4v9a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2Z"/>
+        </svg>
+      </a>
+      <span class="app-strip-title">Çarpanlar ve Katlar</span>
+      <button class="fs-icon" type="button" aria-label="Tam ekran">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M7 3H3v4h2V5h2V3zm12 0h-4v2h2v2h2V3zM7 19H5v-2H3v4h4v-2zm12-2h-2v2h-2v2h4v-4z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const btn = document.querySelector('.app-strip .fs-icon');
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        const docEl = document.documentElement;
+        if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+          if (docEl.requestFullscreen) docEl.requestFullscreen();
+          else if (docEl.webkitRequestFullscreen) docEl.webkitRequestFullscreen();
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+        }
+      });
+    })();
+  </script>
+
+  <div class="container">
+    <div class="cards">
+      <section class="card" aria-labelledby="factorsTitle">
+        <h2 id="factorsTitle">Çarpanlar / Bölenler</h2>
+        <div class="controls">
+          <label class="field">
+            <span>Başlangıç sayısı</span>
+            <input id="factorsN" type="number" min="2" max="9999" value="36" inputmode="numeric" />
+          </label>
+          <button id="factorsRandom" class="btn blue" type="button">Sayı Üret</button>
+          <button id="showFactors" class="btn accent" type="button">Çarpanları Göster</button>
+        </div>
+        <div id="factorsList" class="list" aria-live="polite"></div>
+        <div class="answer">
+          <label for="factorsInput" class="answer-label">Çarpanları (virgülle) yaz:</label>
+          <div class="answer-row">
+            <input id="factorsInput" type="text" placeholder="1, 2, 3, 6, 9, 18, 36" autocomplete="off" />
+            <button id="checkFactors" class="btn success" type="button">Kontrol Et</button>
+          </div>
+          <div id="factorsFeedback" class="feedback hidden" role="status"></div>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="multiplesTitle">
+        <h2 id="multiplesTitle">Katlar</h2>
+        <div class="controls">
+          <label class="field">
+            <span>Başlangıç sayısı</span>
+            <input id="multiplesN" type="number" min="2" max="200" value="7" inputmode="numeric" />
+          </label>
+          <label class="field">
+            <span>Adet</span>
+            <input id="multiplesCount" type="number" min="3" max="20" value="10" />
+          </label>
+          <button id="multiplesRandom" class="btn blue" type="button">Sayı Üret</button>
+          <button id="showMultiples" class="btn accent" type="button">Katları Göster</button>
+        </div>
+        <div id="multiplesList" class="list" aria-live="polite"></div>
+        <div class="answer">
+          <label for="multiplesInput" class="answer-label">İlk N katı (virgülle) yaz:</label>
+          <div class="answer-row">
+            <input id="multiplesInput" type="text" placeholder="7, 14, 21, 28, ..." autocomplete="off" />
+            <button id="checkMultiples" class="btn success" type="button">Kontrol Et</button>
+          </div>
+          <div id="multiplesFeedback" class="feedback hidden" role="status"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

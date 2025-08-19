@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.page-wide .container { max-width: 100%; padding: 0 24px; }
+
+/* Purple app strip reused */
+.app-strip { background: linear-gradient(90deg, var(--dark-purple), var(--primary-purple)); padding: 10px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.logo-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: center; gap: 16px; position: relative; }
+/* full-bleed strip on subpages */
+.page-wide .logo-container { max-width: 100%; padding: 0 24px; }
+.app-strip .home-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; opacity: 0.9; }
+.app-strip .home-icon svg { width: 22px; height: 22px; fill: currentColor; }
+.app-strip .fs-icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: transparent; border: 0; color: #fff; cursor: pointer; opacity: .9; }
+.app-strip .fs-icon svg { width: 22px; height: 22px; fill: currentColor; }
+.app-strip-title { color: #fff; font-family: 'Baloo 2', cursive; font-weight: 700; font-size: 1.6rem; letter-spacing: -0.2px; }
+
+/* Cards layout */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; align-items: start; margin: 18px 0; }
+.card { background: #fff; border-radius: 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); padding: 16px; border: 1px solid #ececec; }
+.card h2 { font-family: 'Baloo 2', cursive; font-weight: 800; margin-bottom: 10px; color: #3D3D3D; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin-bottom: 10px; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field span { font-size: 12px; font-weight: 700; color: #555; }
+.field input { padding: 8px 10px; border-radius: 8px; border: 2px solid #e0e0e0; width: 140px; font-weight: 700; }
+.field input:focus { outline: none; border-color: var(--primary-purple); box-shadow: 0 0 0 3px rgba(126,87,194,0.15); }
+
+/* ensure label doesn't add extra bottom space so input bottom aligns with buttons */
+.field span { line-height: 1; }
+
+.btn { padding: 10px 14px; border-radius: 10px; border: 0; font-weight: 800; cursor: pointer; transition: transform .08s ease, box-shadow .12s ease, background .12s ease; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 12px rgba(0,0,0,0.12); }
+.btn:active { transform: translateY(0); box-shadow: none; }
+.btn.success { background: #2e7d32; color: #fff; }
+.btn.success:hover { background: #1b5e20; }
+.btn.accent { background: #ff9800; color: #fff; }
+.btn.accent:hover { background: #fb8c00; }
+.btn.ghost { background: #fff; border: 2px solid #ddd; color: #333; }
+.btn.ghost:hover { background: #f7f7f7; }
+/* Blue style for 'Sayı Üret' */
+.btn.blue { background: #1976d2; color: #fff; }
+.btn.blue:hover { background: #1565c0; }
+
+/* List with animated chips */
+.list { display: flex; flex-wrap: wrap; gap: 8px; padding: 8px 0; min-height: 40px; }
+.chip { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: #f3e5f5; color: #4a148c; border-radius: 50%; font-weight: 800; font-size: 14px; border: 2px solid #e1bee7; opacity: 0; transform: translateY(6px) scale(0.98); transition: opacity .22s ease, transform .22s ease; }
+.chip.tight { font-size: 12px; }
+.chip.enter { opacity: 1; transform: translateY(0) scale(1); }
+
+/* Answer area */
+.answer { margin-top: 8px; }
+.answer-label { display: block; font-weight: 700; margin-bottom: 6px; color: #333; }
+.answer-row { display: flex; gap: 8px; align-items: center; }
+.answer-row input { flex: 1; min-width: 220px; padding: 10px 12px; border-radius: 10px; border: 2px solid #bdbdbd; font-weight: 700; }
+.answer-row input:focus { outline: none; border-color: var(--primary-purple); box-shadow: 0 0 0 3px rgba(126,87,194,0.15); }
+
+.feedback { margin-top: 8px; font-weight: 800; font-family: 'Baloo 2', cursive; }
+.feedback.success { color: #1b5e20; }
+.feedback.error { color: #b71c1c; }
+.hidden { display: none; }
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .field input { width: 120px; }
+}

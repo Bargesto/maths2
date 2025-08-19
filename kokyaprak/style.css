@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap');
+
+* { box-sizing: border-box; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.page-wide .container { max-width: 100%; padding: 0 24px; }
+
+/* Purple app strip reused */
+.app-strip { background: linear-gradient(90deg, var(--dark-purple), var(--primary-purple)); padding: 10px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.logo-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: center; gap: 16px; position: relative; }
+.page-wide .logo-container { max-width: 100%; padding: 0 24px; }
+.app-strip .home-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; opacity: 0.9; }
+.app-strip .home-icon svg { width: 22px; height: 22px; fill: currentColor; }
+.app-strip .fs-icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: transparent; border: 0; color: #fff; cursor: pointer; opacity: .9; }
+.app-strip .fs-icon svg { width: 22px; height: 22px; fill: currentColor; }
+.app-strip-title { color: #fff; font-family: 'Baloo 2', cursive; font-weight: 700; font-size: 1.6rem; letter-spacing: -0.2px; }
+
+/* Cards layout */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; align-items: start; margin: 18px 0; }
+.card { background: #fff; border-radius: 14px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); padding: 16px; border: 1px solid #ececec; }
+.card h2 { font-family: 'Baloo 2', cursive; font-weight: 800; margin-bottom: 10px; color: #3D3D3D; }
+
+/* Controls */
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin-bottom: 10px; }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field.grow { flex: 1; }
+.field span { font-size: 12px; font-weight: 700; color: #555; }
+.field textarea { width: 100%; min-height: 80px; padding: 10px 12px; border-radius: 10px; border: 2px solid #bdbdbd; font-weight: 700; resize: vertical; }
+.field textarea:focus { outline: none; border-color: var(--primary-purple); box-shadow: 0 0 0 3px rgba(126,87,194,0.15); }
+.field select { padding: 8px 10px; border-radius: 10px; border: 2px solid #bdbdbd; font-weight: 700; }
+.field select:focus { outline: none; border-color: var(--primary-purple); box-shadow: 0 0 0 3px rgba(126,87,194,0.15); }
+.check { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: #444; }
+
+.btn { padding: 10px 14px; border-radius: 10px; border: 0; font-weight: 800; cursor: pointer; transition: transform .08s ease, box-shadow .12s ease, background .12s ease; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 12px rgba(0,0,0,0.12); }
+.btn:active { transform: translateY(0); box-shadow: none; }
+.btn.success { background: #2e7d32; color: #fff; }
+.btn.success:hover { background: #1b5e20; }
+.btn.accent { background: #ff9800; color: #fff; }
+.btn.accent:hover { background: #fb8c00; }
+.btn.ghost { background: #fff; border: 2px solid #ddd; color: #333; }
+.btn.ghost:hover { background: #f7f7f7; }
+.btn.blue { background: #1976d2; color: #fff; }
+.btn.blue:hover { background: #1565c0; }
+
+/* Stem-leaf graph */
+.stem-leaf { display: grid; gap: 8px; padding: 6px 0; min-height: 60px; }
+.stem-row { display: grid; grid-template-columns: 60px 10px 1fr; align-items: start; gap: 8px; background: #fafafa; border: 1px solid #eee; border-radius: 10px; padding: 8px 10px; opacity: 0; transform: translateY(6px) scale(0.99); transition: opacity .22s ease, transform .22s ease; }
+.stem-row.enter { opacity: 1; transform: translateY(0) scale(1); }
+.stem { font-weight: 900; color: #4a148c; font-family: 'Baloo 2', cursive; }
+.bar { color: #616161; font-weight: 900; text-align: center; }
+.leaves { display: flex; flex-wrap: wrap; gap: 6px; }
+.leaf-chip { display: inline-flex; align-items: center; justify-content: center; min-width: 26px; height: 26px; padding: 0 8px; border-radius: 9999px; background: #e3f2fd; color: #0d47a1; border: 2px solid #bbdefb; font-weight: 800; font-size: 13px; opacity: 0; transform: translateY(4px) scale(0.98); transition: opacity .2s ease, transform .2s ease; }
+.leaf-chip.enter { opacity: 1; transform: translateY(0) scale(1); }
+
+/* Stats */
+.stats { font-weight: 800; color: #333; margin-bottom: 6px; }
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .stem-row { grid-template-columns: 48px 10px 1fr; }
+}

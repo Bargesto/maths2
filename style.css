@@ -457,7 +457,7 @@ body.home {
 .home .app-button {
     position: relative;
     display: block;
-    padding-left: 38px; /* space for the icon */
+    padding-left: 44px; /* space for the (slightly larger) icon */
 }
 
 .home .app-button::before {
@@ -466,8 +466,8 @@ body.home {
     left: 12px;
     top: 50%; /* vertically center the icon */
     transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     background: url('public/list.png') no-repeat center / contain;
     opacity: 0.9;
 }
